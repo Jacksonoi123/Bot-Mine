@@ -12,12 +12,12 @@ bot.once('spawn', () => {
   setTimeout(() => {
     bot.chat('/login bot123456');  // Troque pela senha correta
     console.log('🔐 Login enviado!');
-  }, 300);
+  }, 30000);
 
   // Evita o kick por inatividade, enviando uma mensagem a cada 5 minutos
   setInterval(() => {
-    bot.chat('Movendo-se para evitar inatividade...');
-  }, 300000); // 5 minutos
+    bot.chat('Oi Pessoal');
+  }, 3000000); // 5 minutos
 
   // Mantém o bot ativo e tenta reconectar se for desconectado
   bot.on('end', () => {
@@ -41,7 +41,7 @@ function reconnect() {
       port: 10710,
       username: 'Bot_Aliado',
     });
-  }, 5000); // Espera 5 segundos antes de tentar reconectar
+  }, 50000); // Espera 5 segundos antes de tentar reconectar
 }
 
 console.log('🤖 Bot inicializado!');
