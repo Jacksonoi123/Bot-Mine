@@ -1,7 +1,7 @@
 const mineflayer = require('mineflayer');
 
 const bot = mineflayer.createBot({
-  host: 'aliadocraft.duckdns.org',
+  host: 'pl-01.freezehost.pro',
   port: 10710,
   username: 'Bot_AliadoCraft',
 });
@@ -13,13 +13,13 @@ bot.once('spawn', () => {
   setTimeout(() => {
     bot.chat('/login bot123456');  // <- troque "senha123" pela senha do seu bot
     console.log('🔐 Login enviado!');
-  }, 3000); // espera 3 segundos antes de tentar logar
+  }, 300); // espera 3 segundos antes de tentar logar
 
   // Depois de 10 minutos, sai do servidor
   setTimeout(() => {
     console.log('🕒 Desconectando...');
     bot.quit();
-  }, 10 * 60 * 1000); // 10 minutos
+  }, 600000); // 10 minutos
 });
 
 bot.on('end', () => {
