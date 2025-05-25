@@ -11,7 +11,6 @@ bot.once('spawn', () => {
 
   // Espera um pouco e envia o login
   setTimeout(() => {
-    bot.chat('/register bot123456 bot123456');
     bot.chat('/login bot123456');  // <- troque "senha123" pela senha do seu bot
     console.log('🔐 Login enviado!');
   }, 3000); // espera 3 segundos antes de tentar logar
