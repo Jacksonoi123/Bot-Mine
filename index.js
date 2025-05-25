@@ -3,7 +3,7 @@ const mineflayer = require('mineflayer');
 const bot = mineflayer.createBot({
   host: 'pl-01.freezehost.pro',
   port: 10710,
-  username: 'Bot_AliadoCraft',
+  username: 'Bot_Aliado',
 });
 
 bot.once('spawn', () => {
