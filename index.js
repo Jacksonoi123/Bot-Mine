@@ -17,7 +17,7 @@ bot.once('spawn', () => {
   // Evita o kick por inatividade, enviando uma mensagem a cada 5 minutos
   setInterval(() => {
     bot.chat('Oi Pessoal');
-  }, 3000000); // 5 minutos
+  }, 300000); // 5 minutos
 
   // Mantém o bot ativo e tenta reconectar se for desconectado
   bot.on('end', () => {
