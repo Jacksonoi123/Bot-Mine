@@ -7,21 +7,41 @@ const bot = mineflayer.createBot({
 });
 
 bot.once('spawn', () => {
-  console.log('✅ Bot conectado no servidor!');
+  console.log('✅ Bot conectado ao servidor!');
 
-  // Espera um pouco e envia o login
   setTimeout(() => {
-    bot.chat('/login bot123456');  // <- troque "senha123" pela senha do seu bot
+    bot.chat('/login bot123456');  // Troque pela senha correta
     console.log('🔐 Login enviado!');
-  }, 300); // espera 3 segundos antes de tentar logar
+  }, 300);
 
-  // Depois de 10 minutos, sai do servidor
+  // Evita o kick por inatividade, enviando uma mensagem a cada 5 minutos
+  setInterval(() => {
+    bot.chat('Movendo-se para evitar inatividade...');
+  }, 300000); // 5 minutos
+
+  // Mantém o bot ativo e tenta reconectar se for desconectado
+  bot.on('end', () => {
+    console.log('🔌 Bot desconectado! Tentando reconectar...');
+    reconnect();
+  });
+
+  bot.on('error', (err) => {
+    console.log(`❌ Erro: ${err.message}`);
+  });
+
+  bot.on('kicked', (reason) => {
+    console.log(`⛔ Bot foi expulso: ${reason}`);
+  });
+});
+
+function reconnect() {
   setTimeout(() => {
-    console.log('🕒 Desconectando...');
-    bot.quit();
-  }, 600000); // 10 minutos
-});
+    bot.createBot({
+      host: 'pl-01.freezehost.pro',
+      port: 10710,
+      username: 'Bot_Aliado',
+    });
+  }, 5000); // Espera 5 segundos antes de tentar reconectar
+}
 
-bot.on('end', () => {
-  console.log('🔌 Bot desconectado!');
-});
+console.log('🤖 Bot inicializado!');
