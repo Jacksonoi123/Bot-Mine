@@ -2,8 +2,8 @@ name: Entrar e sair do servidor
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # A cada 30 minutos
-  workflow_dispatch:        # Também permite iniciar manualmente
+    - cron: '*/5 * * * *'  # A cada 30 minutos
+  workflow_dispatch:        # Permite iniciar manualmente
 
 jobs:
   entrar-e-sair:
