@@ -1,0 +1,23 @@
+name: Entrar e sair do servidor
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # A cada 30 minutos
+  workflow_dispatch:        # Também permite iniciar manualmente
+
+jobs:
+  entrar-e-sair:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - run: npm install
+
+      - name: Rodar o bot (fica 10 min online)
+        run: node index.js
