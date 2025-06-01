@@ -1,7 +1,7 @@
 const mineflayer = require('mineflayer');
 
 const bot = mineflayer.createBot({
-  host: 'pl-01.freezehost.pro',
+  host: 'fi-01.freezehost.pro',
   port: 10710,
   username: 'Bot_Aliado',
 });
